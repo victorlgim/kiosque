@@ -12,4 +12,16 @@ def get_product_by_id(id: int):
     return {}
 
 
+def get_products_by_type(type: str):
+    if not isinstance(type, str):
+        raise TypeError("product type must be a str")
 
+    list_products = []
+    for product in products:
+        if product["type"] == type:
+            list_products.append(product)
+
+    if len(list_products) > 0:
+        return list_products
+
+    return []
