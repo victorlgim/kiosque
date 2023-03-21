@@ -25,3 +25,18 @@ def get_products_by_type(type: str):
         return list_products
 
     return []
+
+
+def add_product(menu, **kwargs):
+    if not menu:
+        new_id = 1
+    else:
+        max_id = max(product["_id"] for product in menu)
+        new_id = max_id + 1
+
+    new_product = {"_id": new_id}
+    new_product.update(kwargs)
+
+    menu.append(new_product)
+
+    return new_product
