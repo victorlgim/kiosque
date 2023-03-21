@@ -62,3 +62,26 @@ def menu_report():
     report = f"Products Count: {product_count} - Average Price: ${avg_price} - Most Common Type: {most_common_type}"
 
     return report
+
+
+def add_product_extra(menu, *args, **kwargs):
+
+    for key in args:
+        if key not in kwargs:
+            raise KeyError(f"field {key} is required")
+
+    extra_keys = set(kwargs.keys()) - set(args)
+    for key in extra_keys:
+        kwargs.pop(key)
+
+    if not menu:
+        new_id = 1
+    else:
+        new_id = max(item['_id'] for item in menu) + 1
+
+    new_product = {'_id': new_id}
+    new_product.update(kwargs)
+
+    menu.append(new_product)
+
+    return new_product
