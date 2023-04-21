@@ -1,5 +1,3 @@
-<h1> M5 - Kiosque </h1>
-
 <h2> Como rodar os testes localmente </h2>
 
 <h3> Preparação do ambiente <h3>
